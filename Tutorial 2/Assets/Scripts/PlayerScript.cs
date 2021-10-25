@@ -10,6 +10,8 @@ public class PlayerScript : MonoBehaviour
     public float speed;
 
     public Text score;
+    
+    public Text winText;
 
     private int scoreValue = 0;
 
@@ -18,6 +20,7 @@ public class PlayerScript : MonoBehaviour
     {
         rd2d = GetComponent<Rigidbody2D>();
         score.text = scoreValue.ToString();
+        winText.text ="";
     }
 
     // Update is called once per frame
@@ -34,6 +37,10 @@ public class PlayerScript : MonoBehaviour
         {
             scoreValue += 1;
             score.text = scoreValue.ToString();
+            if (scoreValue ==4)
+            {
+                winText.text ="You Win! Created by Eleazor Pringle";
+            }
             Destroy(collision.collider.gameObject);
         }
         
